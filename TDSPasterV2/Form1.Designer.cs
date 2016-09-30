@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.selectFileButton = new System.Windows.Forms.Button();
+            this.selectFolderButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,22 +41,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(828, 388);
             this.dataGridView1.TabIndex = 0;
             // 
-            // selectFileButton
+            // selectFolderButton
             // 
-            this.selectFileButton.Location = new System.Drawing.Point(591, 34);
-            this.selectFileButton.Name = "selectFileButton";
-            this.selectFileButton.Size = new System.Drawing.Size(92, 23);
-            this.selectFileButton.TabIndex = 1;
-            this.selectFileButton.Text = "Select Folder";
-            this.selectFileButton.UseVisualStyleBackColor = true;
-            this.selectFileButton.Click += new System.EventHandler(this.selectFileButton_Click);
+            this.selectFolderButton.Location = new System.Drawing.Point(591, 34);
+            this.selectFolderButton.Name = "selectFolderButton";
+            this.selectFolderButton.Size = new System.Drawing.Size(92, 23);
+            this.selectFolderButton.TabIndex = 1;
+            this.selectFolderButton.Text = "Select Folder";
+            this.selectFolderButton.UseVisualStyleBackColor = true;
+            this.selectFolderButton.Click += new System.EventHandler(this.selectFolderButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 480);
-            this.Controls.Add(this.selectFileButton);
+            this.Controls.Add(this.selectFolderButton);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -68,7 +68,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button selectFileButton;
+        private System.Windows.Forms.Button selectFolderButton;
     }
 }
 

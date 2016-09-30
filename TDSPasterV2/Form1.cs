@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
@@ -16,6 +10,7 @@ namespace TDSPasterV2
     {
         
         string fileLocation, folderLocation;
+
         public Form1()
         {
             InitializeComponent();
@@ -42,7 +37,7 @@ namespace TDSPasterV2
             return tubeCount;
         }
 
-        private void populateDataGridView(string[] dirs)
+        private void PopulateDataGridView(string[] dirs)
         {
             int dirSize = dirs.Count();
 
@@ -54,9 +49,7 @@ namespace TDSPasterV2
                 int rightcounter = 3;
                 int counter = 0;
                 float tubeCount;
-
                 
-
                 string line;
                 string currentLocation;
 
@@ -131,51 +124,26 @@ namespace TDSPasterV2
                         //xlWorkSheet.Cells[2, rightcounter] = line;
                         rightcounter = rightcounter + 3;
                     }
-
                 }
-                
             }
             return;
         }
 
-        private void selectFileButton_Click(object sender, EventArgs e)
+        private void selectFolderButton_Click(object sender, EventArgs e)
         {
-            // Create an instance of the open file dialog box.
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            
+            DialogResult userClickedOk = folderBrowser.ShowDialog();
 
-            // Set filter options and filter index.
-            openFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 2;
-
-            openFileDialog1.Multiselect = true;
-
-            // Call the ShowDialog method to show the dialog box.
-            DialogResult userClickedOK = openFileDialog1.ShowDialog();
-
-
-            // Process input if the user clicked OK.
-            if (userClickedOK == DialogResult.OK)
+            if (userClickedOk == DialogResult.OK)
             {
-                // Open the selected file to read.
-                Stream fileStream = openFileDialog1.OpenFile();
-
-                using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    // Read the first line from the file and write it the textbox.
-
-                    string filename = openFileDialog1.FileName;
-                    fileLocation = filename;
-
-                    folderLocation = Path.GetDirectoryName(filename);
-                }
-
-                fileStream.Close();
-                
+                //get the location of the folder that the user selected
+                folderLocation = folderBrowser.SelectedPath;
                 //Getting an array of all of the file paths for the files in the directory with the selected file
                 string[] dirs = Directory.GetFiles(folderLocation);
                 //dirs.ToList().ForEach(Console.WriteLine);
 
-                populateDataGridView(dirs);
+                PopulateDataGridView(dirs);
             }
         }
     }
